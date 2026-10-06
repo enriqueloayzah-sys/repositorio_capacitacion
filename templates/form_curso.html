@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Registrar Nuevo Curso</h2>
+<form method="POST" class="card p-4 shadow-sm bg-white mt-3">
+    <div class="mb-3">
+        <label class="form-label">Nombre del Curso</label>
+        <input type="text" name="nombre" class="form-control" placeholder="Ej. Programación en Python" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Docente a Cargo</label>
+        <input type="text" name="docente" class="form-control" placeholder="Ej. Ing. Carlos Pérez" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Duración</label>
+        <input type="text" name="duracion" class="form-control" placeholder="Ej. 4 semanas / 40 horas" required>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Guardar Curso</button>
+        <a href="{{ url_for('listar_cursos') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+{% endblock %}
