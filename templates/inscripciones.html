@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Registro de Inscripciones</h2>
+    <a href="{{ url_for('nueva_inscripcion') }}" class="btn btn-primary">+ Registrar Inscripción</a>
+</div>
+
+<table class="table table-bordered bg-white shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>N° Inscripción</th>
+            <th>Curso</th>
+            <th>Estudiante</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in inscripciones %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.curso }}</td>
+            <td>{{ i.estudiante }}</td>
+            <td>{{ i.fecha }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" class="text-center">No hay inscripciones registradas.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

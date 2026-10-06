@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Registrar Nueva Inscripción</h2>
+<form method="POST" class="card p-4 shadow-sm bg-white mt-3">
+    <div class="mb-3">
+        <label class="form-label">Seleccionar Curso</label>
+        <select name="curso_id" class="form-select" required>
+            <option value="" selected disabled>-- Selecciona un curso --</option>
+            {% for c in cursos %}
+            <option value="{{ c.id }}">{{ c.nombre }} (Docente: {{ c.docente }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Seleccionar Estudiante</label>
+        <select name="estudiante_id" class="form-select" required>
+            <option value="" selected disabled>-- Selecciona un estudiante --</option>
+            {% for e in estudiantes %}
+            <option value="{{ e.id }}">{{ e.nombre }} - CI: {{ e.ci }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Fecha de Inscripción</label>
+        <input type="date" name="fecha" class="form-control" required>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Completar Inscripción</button>
+        <a href="{{ url_for('listar_inscripciones') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+{% endblock %}
