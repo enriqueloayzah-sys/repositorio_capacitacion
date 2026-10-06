@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<h2>Registrar Nuevo Estudiante</h2>
+<form method="POST" class="card p-4 shadow-sm bg-white mt-3">
+    <div class="mb-3">
+        <label class="form-label">Nombre Completo</label>
+        <input type="text" name="nombre" class="form-control" placeholder="Ej. Ana María Torres" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cédula de Identidad (C.I.)</label>
+        <input type="text" name="ci" class="form-control" placeholder="Ej. 8493021" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" name="email" class="form-control" placeholder="ejemplo@correo.com" required>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Guardar Estudiante</button>
+        <a href="{{ url_for('listar_estudiantes') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+{% endblock %}
